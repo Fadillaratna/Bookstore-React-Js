@@ -35,14 +35,12 @@ export default class Gallery extends Component {
             selectedItem: null,
         }
         this.state.filterBuku = this.state.buku
-
-
     }
 
 
     Add = () => {
         // menampilkan komponen modal
-        // $("#modal").modal("show")
+        $("#modal_buku").show()
         this.setState({
             isbn: Math.random(1, 10000000),
             judul: "",
@@ -56,7 +54,7 @@ export default class Gallery extends Component {
 
     Edit = (item) => {
         // menampilkan komponen modal
-        // $("#modal").modal("show")
+        $("#modal_buku").show()
         this.setState({
             isbn: item.isbn,
             judul: item.judul,
@@ -99,7 +97,7 @@ export default class Gallery extends Component {
         this.setState({ buku: tempBuku })
 
         // menutup komponen modal_buku
-        $("#modal").modal("hide")
+        $("#modal_buku").hide()
     }
 
     Drop = (item) => {
@@ -133,11 +131,13 @@ export default class Gallery extends Component {
         }
     }
 
-
+    Close = () =>{
+        $("#modal_buku").hide()
+    }
 
     render() {
         return (
-            <div className="container">
+            <div className="container"><br />
                 <input type="text" className="form-control my-2" placeholder="Pencarian"
                     value={this.state.keyword}
                     onChange={ev => this.setState({ keyword: ev.target.value })}
@@ -146,71 +146,72 @@ export default class Gallery extends Component {
                 <div className="row">
                     {this.state.filterBuku.map((item, index) => (
                         <Card
-                        key={index}
-                        judul={item.judul}
-                        penulis={item.penulis}
-                        penerbit={item.penerbit}
-                        harga={item.harga}
-                        cover={item.cover}
-                        onEdit={() => this.Edit(item)}
-                        onDrop={() => this.Drop(item)}
-                    />
+                            key={index}
+                            judul={item.judul}
+                            penulis={item.penulis}
+                            penerbit={item.penerbit}
+                            harga={item.harga}
+                            cover={item.cover}
+                            onEdit={() => this.Edit(item)}
+                            onDrop={() => this.Drop(item)}
+                        />
                     ))}
                 </div>
 
-                <button className="btn btn-success" onClick={() => this.Add()} data-toggle="modal" data-target="#modal">
+                <button className="btn btn-success" onClick={() => this.Add()} data-toggle="modal" data-target="#modal_buku">
                     Tambah Data
                 </button>
 
                 {/* component modal sbg control manipulasi data */}
-                <div className="modal fade" id="modal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title"><b>Class Data</b></h4>
-                                    <button type="button" class="btn-close" data-dismiss="modal"></button>
-                                </div>
-                                <div class="modal-body">
+                <div className="modal" id="modal_buku">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h4 class="modal-title"><b>Modal Book</b></h4>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => this.Close()}></button>
+                            </div>
+                            <div className="modal-body">
                                 <form onSubmit={ev => this.Save(ev)}>
                                     Judul Buku
                                     <input type="text" className="form-control mb-2"
-                                        value={this.state.judul}
-                                        onChange={ev => this.setState({ judul: ev.target.value })}
-                                        required />
-
+                                    value={this.state.judul}
+                                    onChange={ ev => this.setState({judul: ev.target.value}) }
+                                    required />
+                                    
                                     Penulis Buku
                                     <input type="text" className="form-control mb-2"
-                                        value={this.state.penulis}
-                                        onChange={ev => this.setState({ penulis: ev.target.value })}
-                                        required />
-
+                                    value={this.state.penulis}
+                                    onChange={ ev => this.setState({penulis: ev.target.value}) }
+                                    required />
+                                    
                                     Penerbit Buku
                                     <input type="text" className="form-control mb-2"
-                                        value={this.state.penerbit}
-                                        onChange={ev => this.setState({ penerbit: ev.target.value })}
-                                        required />
-
+                                    value={this.state.penerbit}
+                                    onChange={ ev => this.setState({penerbit: ev.target.value}) }
+                                    required />
+                                    
                                     Harga Buku
                                     <input type="number" className="form-control mb-2"
-                                        value={this.state.harga}
-                                        onChange={ev => this.setState({ harga: ev.target.value })}
-                                        required />
-
+                                    value={this.state.harga}
+                                    onChange={ ev => this.setState({harga: ev.target.value}) }
+                                    required />
+                                    
                                     Cover Buku
                                     <input type="url" className="form-control mb-2"
-                                        value={this.state.cover}
-                                        onChange={ev => this.setState({ cover: ev.target.value })}
-                                        required />
-
+                                    value={this.state.cover}
+                                    onChange={ ev => this.setState({cover: ev.target.value}) }
+                                    required />
+ 
                                     <button className="btn btn-info btn-block" type="submit">
                                         Simpan
                                     </button>
                                 </form>
-                                    <br></br>
-                                </div>
+
+                                <br></br>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
 
         )

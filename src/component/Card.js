@@ -10,7 +10,7 @@ class Card extends React.Component{
                         {/* menampilkan Gambar / cover */}
                         <div className="col-5">
                             <img src={this.props.cover} className="img"
-                            height="200" />
+                            id="buku" />
                         </div>
  
                         {/* menampilkan deskripsi */}
