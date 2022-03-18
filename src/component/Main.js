@@ -6,15 +6,19 @@ import About from './About';
 import Contact from './Contact';
 import Creation from './Creation';
 import Gallery from './Gallery';
+import Cart from './Cart';
 
 const Main = () => {
     return (
         <Switch>
+            {/* switch component, routes element */}
+            {/* exact (yang akan pertama ditampilkan) */}
             <Route exact path="/" component={Home}/>
-            <Route exact path="/about" component={About}/>
-            <Route exact path="/contact" component={Contact}/>
-            <Route exact path="/creation" component={Creation}/>
-            <Route exact path="/gallery" component={Gallery}/>
+            <Route path="/about" component={About}/>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/creation" component={Creation}/>
+            <Route path="/gallery" component={Gallery}/>
+            <Route path="/cart" component={Cart}/>
         </Switch>
     );
 };

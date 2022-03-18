@@ -35,6 +35,7 @@ function App() {
             <NavLink to="/contact" className="no-underline text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Contact</NavLink>
             <NavLink to="/about" className="no-underline text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium " aria-current="page">About</NavLink>
             <NavLink to="/gallery" className="no-underline text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium " aria-current="page">Gallery</NavLink>
+            <NavLink to="/cart" className="no-underline text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium " aria-current="page">Cart</NavLink>
           </div>
         </div>
       </div>
