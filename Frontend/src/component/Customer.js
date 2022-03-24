@@ -138,12 +138,13 @@ class Customer extends React.Component {
     render() {
         return (
             <div className="container mb-4"> <br></br>
+
                 <h4 className="d-flex justify-content-between align-items-center">
                     <span className="display-6 fw-light mt-5">Customer's Data</span>
                 </h4><br></br>
                 <div className="tombol mb-5">
                     <div className='pegawai'>
-                        <button type="button" className='btn btn-dark' id="blue" onClick={() => this.Add()} data-toggle="modal" data-target="#modal"><i className="fa fa-plus me-2"></i>Add Officer</button>
+                        <button type="button" className='btn btn-dark' id="blue" onClick={() => this.Add()} data-toggle="modal" data-target="#modal"><i className="fa fa-plus me-2"></i>Add Buyer</button>
                     </div>
                     <div className="input">
                         <input type="text" name="search" value={this.state.search} onChange={this.bind} onKeyUp={this.findCustomer} class="form-control form-input" placeholder="Find Spine's Customer" id="search" />
