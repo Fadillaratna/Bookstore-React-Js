@@ -91,27 +91,32 @@ class Customer extends React.Component {
         event.preventDefault();
         /* menampung data nip, nama dan alamat dari Form
         ke dalam FormData() untuk dikirim */
-        let url = "";
-        if (this.state.action === "insert") {
-            url = "http://localhost:2910/customer/save"
-        } else {
-            url = "http://localhost:2910/customer/update"
-        }
         let form = {
             id: this.state.id,
             nama: this.state.nama,
             alamat: this.state.alamat
         }
-        // mengirim data ke API untuk disimpan pada database
-        axios.post(url, form)
-            .then(response => {
-                // jika proses simpan berhasil, memanggil data yang terbaru
-                this.getCustomer();
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        // menutup form modal
+
+        if (this.state.action === "insert") {
+            axios.post("http://localhost:2910/customer/save", form)
+                .then(response => {
+                    // jika proses simpan berhasil, memanggil data yang terbaru
+                    this.getCustomer();
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+        } else {
+            axios.put("http://localhost:2910/customer/update", form)
+                .then(response => {
+                    // jika proses simpan berhasil, memanggil data yang terbaru
+                    this.getCustomer();
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
         $("#modal").hide()
     }
 

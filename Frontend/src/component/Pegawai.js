@@ -105,26 +105,31 @@ class Pegawai extends React.Component {
     event.preventDefault();
     /* menampung data nip, nama dan alamat dari Form
     ke dalam FormData() untuk dikirim */
-    let url = "";
-    if (this.state.action === "insert") {
-      url = "http://localhost:2910/pegawai/save"
-    } else {
-      url = "http://localhost:2910/pegawai/update"
-    }
     let form = {
       nip: this.state.nip,
       nama: this.state.nama,
       alamat: this.state.alamat
     }
-    // mengirim data ke API untuk disimpan pada database
-    axios.post(url, form)
-      .then(response => {
-        // jika proses simpan berhasil, memanggil data yang terbaru
-        this.getPegawai();
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (this.state.action === "insert") {
+      // mengirim data ke API untuk disimpan pada database
+      axios.post("http://localhost:2910/pegawai/save", form)
+        .then(response => {
+          // jika proses simpan berhasil, memanggil data yang terbaru
+          this.getPegawai();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      axios.put("http://localhost:2910/pegawai/update", form)
+        .then(response => {
+          // jika proses simpan berhasil, memanggil data yang terbaru
+          this.getPegawai();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
     // menutup form modal
     $("#modal").hide()
   }

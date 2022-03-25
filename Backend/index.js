@@ -140,7 +140,7 @@ app.post("/customer/save", (req, res) => {
 })
 
 // POST: /pegawai/update --> end point untuk update data pegawai
-app.post("/pegawai/update", (req, res) => {
+app.put("/pegawai/update", (req, res) => {
     let data = [{
         nip: req.body.nip,
         nama: req.body.nama,
@@ -162,8 +162,8 @@ app.post("/pegawai/update", (req, res) => {
     })
 })
 
-// POST: /customer/update --> end point untuk update data pegawai
-app.post("/customer/update", (req, res) => {
+// post: /customer/update --> end point untuk update data pegawai
+app.put("/customer/update", (req, res) => {
     let data = [{
         id: req.body.id,
         nama: req.body.nama,
