@@ -8,7 +8,7 @@ export default class About extends Component {
         <div className="container py-5 my-4">
           <div className="row">
             <div className="col-md-6">
-              <h1 class="display-6 fw-bolder mt-5 mb-4">About Spine</h1>
+              <h1 className="display-6 fw-bolder mt-5 mb-4">About Spine</h1>
               <p className="lead mb-4">
               A marketplace platform that provides various types of books from fiction to non-fiction with high quality and the best prices. Get your new book collection now!
              </p>

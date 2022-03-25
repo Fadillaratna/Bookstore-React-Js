@@ -235,13 +235,13 @@ export default class Gallery extends Component {
 
                 {/* component modal sbg control manipulasi data */}
                 <div className="modal" id="modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><b>Book's Data</b></h4>
-                                <button type="button" class="btn-close" data-dismiss="modal" onClick={() => this.Close()}></button>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h4 className="modal-title"><b>Book's Data</b></h4>
+                                <button type="button" className="btn-close" data-dismiss="modal" onClick={() => this.Close()}></button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <form onSubmit={ev => this.Save(ev)}>
                                     Title
                                     <input type="text" className="form-control mb-2"

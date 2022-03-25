@@ -36,12 +36,6 @@ class Customer extends React.Component {
     }
 
     Edit = (item) => {
-        /*
-        - mengisikan isi variabel nip, nama, alamat sesuai dengan data yang
-        akan diedit
-        - set action menjadi "update"
-        */
-        // menampilkan komponen modal
         $("#modal").show()
         this.setState({
             id: item.id,
@@ -152,7 +146,7 @@ class Customer extends React.Component {
                         <button type="button" className='btn btn-dark' id="blue" onClick={() => this.Add()} data-toggle="modal" data-target="#modal"><i className="fa fa-plus me-2"></i>Add Buyer</button>
                     </div>
                     <div className="input">
-                        <input type="text" name="search" value={this.state.search} onChange={this.bind} onKeyUp={this.findCustomer} class="form-control form-input" placeholder="Find Spine's Customer" id="search" />
+                        <input type="text" name="search" value={this.state.search} onChange={this.bind} onKeyUp={this.findCustomer} className="form-control form-input" placeholder="Find Spine's Customer" id="search" />
                     </div>
                 </div>
 
@@ -187,13 +181,13 @@ class Customer extends React.Component {
 
                 {/* component modal sbg control manipulasi data */}
                 <div className="modal modal" id="modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><b>Customer's Data</b></h4>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h4 className="modal-title"><b>Customer's Data</b></h4>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => this.Close()}></button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <form onSubmit={this.SaveCustomer}>
                                     ID
                                     <input type="text" name="id" value={this.state.id} onChange={this.bind} className="form-control mb-2" required />
